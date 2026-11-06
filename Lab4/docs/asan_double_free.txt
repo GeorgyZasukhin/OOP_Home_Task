@@ -1,0 +1,15 @@
+=================================================================
+==19159==ERROR: AddressSanitizer: heap-use-after-free on address 0x607000000258 at pc 0x0001046dc834 bp 0x00016b726690 sp 0x00016b726688
+READ of size 8 at 0x607000000258 thread T0
+    #0 0x1046dc830  (build/shallow_copy:arm64+0x100004830)
+    #1 0x1046dbc58  (build/shallow_copy:arm64+0x100003c58)
+    #2 0x1046db9f8  (build/shallow_copy:arm64+0x1000039f8)
+    #3 0x18bf3eb94  (<unknown module>)
+
+0x607000000258 is located 8 bytes inside of 80-byte region [0x607000000250,0x6070000002a0)
+freed by thread T0 here:
+    #0 0x104bdc3d0  (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:arm64e+0x643d0)
+    #1 0x1046dc88c  (build/shallow_copy:arm64+0x10000488c)
+    #2 0x1046dbc58  (build/shallow_copy:arm64+0x100003c58)
+    #3 0x1046db9f0  (build/shallow_copy:arm64+0x1000039f0)
+    #4 0x18bf3eb94  (<unknown module>)

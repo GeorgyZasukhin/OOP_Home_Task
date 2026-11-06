@@ -1,0 +1,58 @@
+Tomato
+Olive oil
+=================================================================
+==19159==ERROR: AddressSanitizer: heap-use-after-free on address 0x607000000258 at pc 0x0001046dc834 bp 0x00016b726690 sp 0x00016b726688
+READ of size 8 at 0x607000000258 thread T0
+    #0 0x1046dc830  (build/shallow_copy:arm64+0x100004830)
+    #1 0x1046dbc58  (build/shallow_copy:arm64+0x100003c58)
+    #2 0x1046db9f8  (build/shallow_copy:arm64+0x1000039f8)
+    #3 0x18bf3eb94  (<unknown module>)
+
+0x607000000258 is located 8 bytes inside of 80-byte region [0x607000000250,0x6070000002a0)
+freed by thread T0 here:
+    #0 0x104bdc3d0  (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:arm64e+0x643d0)
+    #1 0x1046dc88c  (build/shallow_copy:arm64+0x10000488c)
+    #2 0x1046dbc58  (build/shallow_copy:arm64+0x100003c58)
+    #3 0x1046db9f0  (build/shallow_copy:arm64+0x1000039f0)
+    #4 0x18bf3eb94  (<unknown module>)
+
+previously allocated by thread T0 here:
+    #0 0x104bdbfbc  (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:arm64e+0x63fbc)
+    #1 0x1046dbce0  (build/shallow_copy:arm64+0x100003ce0)
+    #2 0x1046dbbe0  (build/shallow_copy:arm64+0x100003be0)
+    #3 0x1046db9c4  (build/shallow_copy:arm64+0x1000039c4)
+    #4 0x18bf3eb94  (<unknown module>)
+
+SUMMARY: AddressSanitizer: heap-use-after-free (build/shallow_copy:arm64+0x100004830) 
+Shadow bytes around the buggy address:
+  0x606fffffff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x607000000000: fa fa fa fa fd fd fd fd fd fd fd fd fd fa fa fa
+  0x607000000080: fa fa fd fd fd fd fd fd fd fd fd fa fa fa fa fa
+  0x607000000100: fd fd fd fd fd fd fd fd fd fa fa fa fa fa fd fd
+  0x607000000180: fd fd fd fd fd fd fd fa fa fa fa fa 00 00 00 00
+=>0x607000000200: 00 00 00 00 00 fa fa fa fa fa fd[fd]fd fd fd fd
+  0x607000000280: fd fd fd fd fa fa fa fa fa fa fa fa fa fa fa fa
+  0x607000000300: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x607000000380: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x607000000400: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x607000000480: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==19159==ABORTING

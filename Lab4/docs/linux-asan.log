@@ -1,0 +1,23 @@
+Tomato
+Olive oil
+
+=================================================================
+==21==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 88 byte(s) in 1 object(s) allocated from:
+    #0 0xffffb4af4b9c in operator new[](unsigned long) (/usr/local/lib64/libasan.so.8+0xd4b9c)
+    #1 0x401e6c in BrokenIngredientList::BrokenIngredientList() experiments/shallow_copy.cpp:9
+    #2 0x401c28 in main experiments/shallow_copy.cpp:36
+    #3 0xffffb3ec2258  (/lib/aarch64-linux-gnu/libc.so.6+0x22258) (BuildId: 5f3926d9963ff284b8173bf3601bbb00c3abad16)
+    #4 0x25ffffb3ec2338  (<unknown module>)
+    #5 0x360000004017ac  (<unknown module>)
+
+SUMMARY: AddressSanitizer: 88 byte(s) leaked in 1 allocation(s).
+No-destructor exit: 1
+Tomato salad:
+  Tomato: 150 g
+  Olive oil: 15 g
+Original: 200 g
+Menu copy: 150 g
+Self-assignment: 2 -> 2
+Fixed exit: 0
