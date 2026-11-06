@@ -1,0 +1,7 @@
+build/
+build-*/
+derived-data/
+DerivedData/
+xcuserdata/
+.DS_Store
+*.o
