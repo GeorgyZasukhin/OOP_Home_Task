@@ -1,0 +1,8 @@
+outputs/Lab3/experiments/reorder_warning.cpp:23:7: warning: field 'registrationYear_' will be initialized after field 'yieldTonPerHa_' [-Wreorder-ctor]
+   23 |       registrationYear_(registrationYear),
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |       yieldTonPerHa_(yieldTonPerHa)
+   24 |       yieldTonPerHa_(yieldTonPerHa)
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |       registrationYear_(registrationYear)
+1 warning generated.

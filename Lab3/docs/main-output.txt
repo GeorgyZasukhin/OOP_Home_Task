@@ -1,0 +1,2 @@
+Variety: Podolianka; crop: Wheat; yield: 6.5 t/ha; registration year: 2003
+Agronomist: Olena Kovalenko; specialization: Cereals; employee id: 9; experience: 8 years

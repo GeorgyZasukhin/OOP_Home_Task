@@ -1,0 +1,14 @@
+[ 10%] Building CXX object CMakeFiles/seed_fund.dir/src/seed_variety.cpp.o
+[ 20%] Building CXX object CMakeFiles/seed_fund.dir/src/agronomist.cpp.o
+[ 30%] Building CXX object CMakeFiles/seed_fund.dir/src/lifetime_log.cpp.o
+[ 40%] Linking CXX static library libseed_fund.a
+[ 40%] Built target seed_fund
+[ 50%] Building CXX object CMakeFiles/Lab3.dir/src/main.cpp.o
+[ 60%] Linking CXX executable Lab3
+[ 60%] Built target Lab3
+[ 70%] Building CXX object CMakeFiles/lifetime_demo.dir/experiments/lifetime_demo.cpp.o
+[ 80%] Linking CXX executable lifetime_demo
+[ 80%] Built target lifetime_demo
+[ 90%] Building CXX object CMakeFiles/constructor_test.dir/tests/constructor_test.cpp.o
+[100%] Linking CXX executable constructor_test
+[100%] Built target constructor_test

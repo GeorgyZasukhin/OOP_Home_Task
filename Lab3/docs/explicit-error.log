@@ -1,0 +1,13 @@
+outputs/Lab3/experiments/implicit_conversion.cpp:8:17: error: no viable conversion from 'std::string' (aka 'basic_string<char>') to 'SeedVariety'
+    8 |     SeedVariety variety = std::string{"Implicit"};
+      |                 ^         ~~~~~~~~~~~~~~~~~~~~~~~
+outputs/Lab3/src/seed_variety.h:17:5: note: candidate constructor not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const SeedVariety &' for 1st argument
+   17 |     SeedVariety(const SeedVariety& other);
+      |     ^           ~~~~~~~~~~~~~~~~~~~~~~~~
+outputs/Lab3/src/seed_variety.h:14:14: note: explicit constructor is not a candidate
+   14 |     explicit SeedVariety(std::string name);
+      |              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/string:1108:55: note: candidate function
+ 1108 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_CONSTEXPR_SINCE_CXX20 operator __self_view() const _NOEXCEPT {
+      |                                                       ^
+1 error generated.
