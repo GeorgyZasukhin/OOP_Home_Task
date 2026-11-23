@@ -14,6 +14,7 @@ void print(const Performance& performance)
               << (performance.isSoldOut() ? "yes" : "no") << '\n';
 }
 
+
 int main()
 {
     Performance performance;
@@ -33,7 +34,7 @@ int main()
               << "Sell extra: " << performance.sellTicket() << '\n';
     print(performance);
 
-    // Спроба порушити зв'язок між кількістю місць і квитків.
+    // Спроба порушити зв'язок між кількістю місць і квитків
     std::cout << "Reduce seats to 1: "
               << performance.setTotalSeats(1) << '\n'
               << "Return ticket: " << performance.returnTicket() << '\n';

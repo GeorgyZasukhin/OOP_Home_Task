@@ -77,7 +77,7 @@ bool Performance::setPremiereDate(const std::string& date)
 
 bool Performance::setTotalSeats(int seats)
 {
-    // Не можна прибрати місця, на які вже продано квитки.
+    // Не можна прибрати місця, на які вже продано квитки
     if (seats < 0 || seats < soldTickets_)
     {
         return false;
@@ -117,7 +117,7 @@ bool Performance::hasText(const std::string& text)
 
 bool Performance::isValidDate(const std::string& date)
 {
-    // Спочатку формат, потім календарні обмеження.
+    // Спочатку формат, потім календарні обмеження
     if (date.size() != 10 || date[4] != '-' || date[7] != '-')
     {
         return false;

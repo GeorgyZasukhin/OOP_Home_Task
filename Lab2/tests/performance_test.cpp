@@ -14,7 +14,7 @@ struct PerformanceTestAccess
     }
 };
 
-// Копія всього стану дозволяє виявити будь-яку небажану зміну.
+// Копія всього стану дозволяє виявити будь-яку небажану зміну
 auto state(const Performance& p)
 {
     return std::make_tuple(p.title(), p.director(), p.premiereDate(),
@@ -23,7 +23,7 @@ auto state(const Performance& p)
 
 TEST_CASE("case_1")
 {
-    // Початковий об'єкт є коректною порожньою чернеткою.
+    // Початковий об'єкт є коректною порожньою чернеткою
     const Performance p;
     CHECK(p.title().empty());
     CHECK(p.director().empty());
@@ -37,7 +37,7 @@ TEST_CASE("case_1")
 
 TEST_CASE("case_2")
 {
-    // Успішна зміна всіх незалежних полів.
+    // Успішна зміна всіх незалежних полів
     Performance p;
     CHECK(p.setTitle("Лісова пісня"));
     CHECK(p.setDirector("Олена Коваленко"));
@@ -52,7 +52,7 @@ TEST_CASE("case_2")
 
 TEST_CASE("case_3")
 {
-    // Відхилення порожніх і пробільних рядків не змінює стан.
+    // Відхилення порожніх і пробільних рядків не змінює стан
     Performance p;
     REQUIRE(p.setTitle("Hamlet"));
     REQUIRE(p.setDirector("Director"));
@@ -67,7 +67,7 @@ TEST_CASE("case_3")
 
 TEST_CASE("case_4")
 {
-    // Некоректний формат дати та відсутність змін після відмови.
+    // Некоректний формат дати та відсутність змін після відмови
     Performance p;
     REQUIRE(p.setPremiereDate("2026-11-06"));
     const auto before = state(p);
@@ -82,7 +82,7 @@ TEST_CASE("case_4")
 
 TEST_CASE("case_5")
 {
-    // Високосність: століття мають окреме правило.
+    // Високосність: століття мають окреме правило
     CHECK(Performance::isValidDate("2024-02-29"));
     CHECK(Performance::isValidDate("2000-02-29"));
     CHECK_FALSE(Performance::isValidDate("1900-02-29"));
@@ -92,7 +92,7 @@ TEST_CASE("case_5")
 
 TEST_CASE("case_6")
 {
-    // Межі року, місяця та дня.
+    // Межі року, місяця та дня
     CHECK(Performance::isValidDate("0001-01-01"));
     CHECK(Performance::isValidDate("9999-12-31"));
     for (const auto& date : {"0000-01-01", "2026-00-01",
@@ -105,7 +105,7 @@ TEST_CASE("case_6")
 
 TEST_CASE("case_7")
 {
-    // Від'ємна місткість не змінює стан.
+    // Від'ємна місткість не змінює стан
     Performance p;
     REQUIRE(p.setTotalSeats(10));
     const auto before = state(p);
@@ -116,7 +116,7 @@ TEST_CASE("case_7")
 
 TEST_CASE("case_8")
 {
-    // Продаж останнього квитка.
+    // Продаж останнього квитка
     Performance p;
     REQUIRE(p.setTotalSeats(1));
     CHECK(p.sellTicket());
@@ -128,7 +128,7 @@ TEST_CASE("case_8")
 
 TEST_CASE("case_9")
 {
-    // Продаж у заповнений зал відхиляється.
+    // Продаж у заповнений зал відхиляється
     Performance p;
     REQUIRE(p.setTotalSeats(1));
     REQUIRE(p.sellTicket());
@@ -140,7 +140,7 @@ TEST_CASE("case_9")
 
 TEST_CASE("case_10")
 {
-    // Зал без місць також не дозволяє продажу.
+    // Зал без місць також не дозволяє продажу
     Performance p;
     const auto before = state(p);
     CHECK_FALSE(p.sellTicket());
@@ -150,7 +150,7 @@ TEST_CASE("case_10")
 
 TEST_CASE("case_11")
 {
-    // Повернення проданого квитка відновлює вільне місце.
+    // Повернення проданого квитка відновлює вільне місце
     Performance p;
     REQUIRE(p.setTotalSeats(1));
     REQUIRE(p.sellTicket());
@@ -163,7 +163,7 @@ TEST_CASE("case_11")
 
 TEST_CASE("case_12")
 {
-    // Зайве повернення не може зробити лічильник від'ємним.
+    // Зайве повернення не може зробити лічильник від'ємним
     Performance p;
     REQUIRE(p.setTotalSeats(1));
     REQUIRE(p.sellTicket());
@@ -176,7 +176,7 @@ TEST_CASE("case_12")
 
 TEST_CASE("case_13")
 {
-    // Місткість не може стати меншою за кількість продажів.
+    // Місткість не може стати меншою за кількість продажів
     Performance p;
     REQUIRE(p.setTotalSeats(3));
     REQUIRE(p.sellTicket());
@@ -191,7 +191,7 @@ TEST_CASE("case_13")
 
 TEST_CASE("case_14")
 {
-    // Максимальний int та повернення до нульової місткості.
+    // Максимальний int та повернення до нульової місткості
     Performance p;
     CHECK(p.setTotalSeats(std::numeric_limits<int>::max()));
     CHECK(p.sellTicket());
@@ -203,7 +203,7 @@ TEST_CASE("case_14")
 
 TEST_CASE("case_15")
 {
-    // Послідовність операцій, копіювання та переміщення чернетки.
+    // Послідовність операцій, копіювання та переміщення чернетки
     Performance p;
     REQUIRE(p.setTotalSeats(3));
     for (int i = 0; i < 3; ++i)
